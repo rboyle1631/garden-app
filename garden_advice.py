@@ -1,29 +1,28 @@
 def get_season_advice(season):
-    if season == "summer":
-        return "Water your plants regularly and provide some shade.\n"
-    elif season == "winter":
-        return "Protect your plants from frost with covers.\n"
-    else:
-        return "No advice for this season.\n"
+    season_advice = {
+        "summer": "Water your plants regularly and provide some shade.\n",
+        "winter": "Protect your plants from frost with covers.\n"
+    }
+    return season_advice.get(season, "No advice for this season.\n")
 
 
 def get_plant_advice(plant_type):
-    if plant_type == "flower":
-        return "Use fertiliser to encourage blooms."
-    elif plant_type == "vegetable":
-        return "Keep an eye out for pests!"
-    else:
-        return "No advice for this type of plant."
+    plant_advice = {
+        "flower": "Use fertiliser to encourage blooms.",
+        "vegetable": "Keep an eye out for pests!"
+    }
+    return plant_advice.get(plant_type, "No advice for this type of plant.")
 
 
 def main():
-    season = "summer"      # still hardcoded for now (Issue 2 will fix this)
-    plant_type = "flower"  # still hardcoded for now
+    season = input("Enter the season (summer/winter): ").lower()
+    plant_type = input("Enter the plant type (flower/vegetable): ").lower()
 
     advice = ""
     advice += get_season_advice(season)
     advice += get_plant_advice(plant_type)
 
+    print("\nGardening Advice:")
     print(advice)
 
 
